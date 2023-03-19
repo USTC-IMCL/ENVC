@@ -6,9 +6,9 @@ class ResBlock(nn.Module):
     def __init__(self, c, ks=3):
         super().__init__()
         self.res_block = nn.Sequential(
-            nn.Conv2d(c, c, ks, 1, ks//2),
+            nn.Conv2d(c, c, ks, 1, ks // 2),
             nn.ReLU(),
-            nn.Conv2d(c, c, ks, 1, ks//2)
+            nn.Conv2d(c, c, ks, 1, ks // 2)
         )
 
     def forward(self, input):
@@ -198,7 +198,7 @@ class HyperDecoder(nn.Module):
         self.m.lrelu = nn.LeakyReLU()
         self.m.up2 = nn.ConvTranspose2d(N, N, 4, 2, 1)
         self.m.up1 = nn.ConvTranspose2d(N, M, 4, 2, 1)
-        self.m.conv1 = nn.ConvTranspose2d(M, 2*M, 3, 1, 1)
+        self.m.conv1 = nn.ConvTranspose2d(M, 2 * M, 3, 1, 1)
 
     def forward(self, x):
         x = self.m.up2(x)
@@ -213,9 +213,9 @@ class ParameterModelGMM(nn.Module):
     def __init__(self, M, ctx_depth):
         super().__init__()
         self.conv = nn.Sequential(
-            nn.Conv2d(ctx_depth, 4*M, 1, 1, 0), nn.LeakyReLU(),
-            ResBlock(4*M, ks=1), nn.LeakyReLU(),
-            nn.Conv2d(4*M, 9*M, 1, 1, 0))
+            nn.Conv2d(ctx_depth, 4 * M, 1, 1, 0), nn.LeakyReLU(),
+            ResBlock(4 * M, ks=1), nn.LeakyReLU(),
+            nn.Conv2d(4 * M, 9 * M, 1, 1, 0))
         self.softmax = nn.Softmax(dim=0)
 
     def forward(self, ctx):

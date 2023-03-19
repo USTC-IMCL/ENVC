@@ -27,15 +27,19 @@ class MSDeformWarp(MSDeformAttn):
 
         N, Len_q, _ = flow.shape
         N, LeNin, _ = input_flatten.shape
-        assert (input_spatial_shapes[:, 0] * input_spatial_shapes[:, 1]).sum() == LeNin
+        assert (input_spatial_shapes[:, 0] * input_spatial_shapes[:,
+                                             1]).sum() == LeNin
 
         value = self.value_proj(input_flatten)
         if input_padding_mask is not None:
             value = value.masked_fill(input_padding_mask[..., None], float(0))
         value = value.view(N, LeNin, nh, dm // nh)
-        sampling_offsets = self.sampling_offsets(flow).view(N, Len_q, nh, nl, np, 2)
-        attention_weights = self.attention_weights(flow).view(N, Len_q, nh, nl * np)
-        attention_weights = F.softmax(attention_weights, -1).view(N, Len_q, nh, nl, np)
+        sampling_offsets = self.sampling_offsets(flow).view(N, Len_q, nh, nl,
+                                                            np, 2)
+        attention_weights = self.attention_weights(flow).view(N, Len_q, nh,
+                                                              nl * np)
+        attention_weights = F.softmax(attention_weights, -1).view(N, Len_q, nh,
+                                                                  nl, np)
 
         # N, Len_q, n_heads, n_levels, n_points, 2
         if ref_points.shape[-1] == 2:
@@ -44,10 +48,13 @@ class MSDeformWarp(MSDeformAttn):
                 dim=-1
             )
             sampling_locations = ref_points[:, :, None, :, None, :] \
-                                 + sampling_offsets / offset_norm[None, None, None, :, None, :]
+                                 + sampling_offsets / offset_norm[None, None,
+                                                      None, :, None, :]
         elif ref_points.shape[-1] == 4:
             sampling_locations = ref_points[:, :, None, :, None, :2] \
-                                 + sampling_offsets / np * ref_points[:, :, None, :, None, 2:] * 0.5
+                                 + sampling_offsets / np * ref_points[:, :,
+                                                           None, :, None,
+                                                           2:] * 0.5
         else:
             raise ValueError('Last dim of ref_points must be 2 or 4')
         output = MSDeformAttnFunction.apply(

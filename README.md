@@ -1,7 +1,7 @@
 # ENVC
+
 Offical implementation of [Learning Cross-Scale Prediction for Efficient Neural
 Video Compression"](https://arxiv.org/abs/2112.13309v2)
-
 
 ## Installation
 
@@ -18,12 +18,13 @@ bash make.sh
 
 ## Evaluation
 
-Currently, we only provide the evaluation code without practical entropy coding, 
+Currently, we only provide the evaluation code without practical entropy
+coding,
 which will be completed in the future.
 
 ### Preparing test sequences
 
-Test sequences are required to be in sRGB format. 
+Test sequences are required to be in sRGB format.
 The folder structure of test sequences is like this:
 
 	|-- testset
@@ -37,7 +38,10 @@ The folder structure of test sequences is like this:
 		...
 
 ### Downloading pre-trained models
-The pretained model can be downloaded [here](https://drive.google.com/drive/folders/1Yj7bKL6xAgtxwm1ycaDp7JL6DLlPWGxJ?usp=share_link).
+
+The pretained model can be
+downloaded [here](https://drive.google.com/drive/folders/1Yj7bKL6xAgtxwm1ycaDp7JL6DLlPWGxJ?usp=share_link)
+.
 We currently only provide the models optimized with MSE metric.
 
 | Model    | Name    | config_file                |
@@ -56,7 +60,7 @@ Run the evaluation script `evaluate.py`:
 python evaluate.py -h
 ```
 
-This will give you a list of options. 
+This will give you a list of options.
 To evaluate a single sequence in the testset mentioned above, you can run:
 
 ```bash
@@ -64,6 +68,7 @@ python evaluate.py -i /testset/sequence1 -c ./cfg/low_rate_model.yaml --ckpt_pat
 ```
 
 This will give the logout like:
+
 ```
 [Frame sequence1 000001] type I bpp 0.175401 psnr 37.8629 msssim 0.980757
 [Frame sequence1 000002] type P bpp 0.042709 psnr 36.9020 msssim 0.978645
@@ -73,17 +78,17 @@ This will give the logout like:
 [Dataset '/testset'] bpp 0.054796 psnr 36.3074 msssim 0.973306
 ```
 
-You can also evaluate multiple test sequences as once using the path in glob 
+You can also evaluate multiple test sequences as once using the path in glob
 pattern:
 
 ```bash
 python evaluate.py -i "/testset/sequence*" -c ./cfg/low_rate_model.yaml --ckpt_path $CKPT_PATH 
 ```
 
-
 ## Citation
 
 If you use this library for research purposes, please cite:
+
 ```
 @article{guo2021learning,
   title={Learning cross-scale prediction for efficient neural video compression},

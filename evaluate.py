@@ -1,18 +1,17 @@
+import argparse
+import glob
 import shutil
 import sys
-import glob
-import yaml
+from collections import defaultdict
+from pathlib import Path
 
-import argparse
 import numpy as np
 import torch
-from pathlib import Path
+import yaml
 from PIL import Image
-from collections import defaultdict
 from easydict import EasyDict as edict
-
 from pytorch_msssim import ms_ssim
-from models.envc import ENVCwAR
+
 import models
 
 
@@ -88,7 +87,7 @@ class SequenceLogger(FrameLogger):
         for name, value in scalar_accumulator.items():
             prec = scalar_precision[name]
             count = scalar_counter[name]
-            self.add_scalar(f"{name}", value / count , round(prec / count))
+            self.add_scalar(f"{name}", value / count, round(prec / count))
 
 
 @torch.no_grad()
@@ -150,7 +149,7 @@ def evaluate_one_sequence(
         msssim = ms_ssim(ori, rec, data_range=255).item()
 
         seq_stem = frame_p.parent.stem
-        logger = FrameLogger(name=f"Frame {seq_stem} {idx+1:0>6}")
+        logger = FrameLogger(name=f"Frame {seq_stem} {idx + 1:0>6}")
         logger.add_text("type", frame_type)
         logger.add_scalar("bpp", bpp, precision=6)
         logger.add_scalar("psnr", psnr, precision=4)
@@ -186,7 +185,7 @@ def evaluate_one_sequence(
 def setup_args(parser):
     # required args
     parser.add_argument(
-         "-c", "--config_path", type=Path, required=True,
+        "-c", "--config_path", type=Path, required=True,
         help="configuration file."
     )
     parser.add_argument(
