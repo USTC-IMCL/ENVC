@@ -78,7 +78,7 @@ This will give the logout like:
 [Dataset '/testset'] bpp 0.054796 psnr 36.3074 msssim 0.973306
 ```
 
-You can also evaluate multiple test sequences as once using the path in glob
+You can also evaluate multiple test sequences at once using the path in glob
 pattern:
 
 ```bash
