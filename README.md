@@ -81,21 +81,14 @@ python evaluate.py -i "/testset/sequence*" -c ./cfg/low_rate_model.yaml --ckpt_p
 ```
 
 
-
 ## Citation
 
 If you use this library for research purposes, please cite:
 ```
-@software{tfc_github,
-  author = "Ballé, Johannes and Hwang, Sung Jin and Agustsson, Eirikur",
-  title = "{T}ensor{F}low {C}ompression: Learned Data Compression",
-  url = "http://github.com/tensorflow/compression",
-  version = "2.11.0",
-  year = "2022",
+@article{guo2021learning,
+  title={Learning cross-scale prediction for efficient neural video compression},
+  author={Guo, Zongyu and Feng, Runsen and Zhang, Zhizheng and Jin, Xin and Chen, Zhibo},
+  journal={arXiv preprint arXiv:2112.13309},
+  year={2021}
 }
 ```
-In the above BibTeX entry, names are top contributors sorted by number of
-commits. Please adjust version number and year according to the version that was
-actually used.
-
-Note that this is not an officially supported Google product.
