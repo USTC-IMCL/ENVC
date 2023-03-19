@@ -50,17 +50,17 @@ We currently only provide the models optimized with MSE metric.
 
 ### Evaluating a pre-trained model
 
-Run the evaluation script `test_dataset.py`:
+Run the evaluation script `evaluate.py`:
 
 ```bash
-python test_sequences.py -h
+python evaluate.py -h
 ```
 
 This will give you a list of options. 
 To evaluate a single sequence in the testset mentioned above, you can run:
 
 ```bash
-python test_sequences.py -i /testset/sequence1 -c ./cfg/low_rate_model.yaml --ckpt_path /ckpt/ENVCwAR/mse512.pth 
+python evaluate.py -i /testset/sequence1 -c ./cfg/low_rate_model.yaml --ckpt_path /ckpt/ENVCwAR/mse512.pth 
 ```
 
 This will give the logout like:
@@ -77,7 +77,7 @@ You can also evaluate multiple test sequences as once using the path in glob
 pattern:
 
 ```bash
-python test_sequences.py -i "/testset/sequence*" -c ./cfg/low_rate_model.yaml --ckpt_path $CKPT_PATH 
+python evaluate.py -i "/testset/sequence*" -c ./cfg/low_rate_model.yaml --ckpt_path $CKPT_PATH 
 ```
 
 
