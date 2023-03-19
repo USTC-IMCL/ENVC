@@ -1,0 +1,9 @@
+model:
+  name: ENVCwAR
+  kwargs:
+    Ni: 128
+    Mi: 160
+    N: 128
+    M: 160
+    num_head: 4
+    num_point: 4
