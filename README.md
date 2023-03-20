@@ -1,7 +1,7 @@
 # ENVC
 
 Offical implementation of [Learning Cross-Scale Prediction for Efficient Neural
-Video Compression"](https://arxiv.org/abs/2112.13309v2)
+Video Compression](https://arxiv.org/abs/2112.13309v2)
 
 ## Installation
 
