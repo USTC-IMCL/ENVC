@@ -90,10 +90,12 @@ python evaluate.py -i "/testset/sequence*" -c ./cfg/low_rate_model.yaml --ckpt_p
 If you use this library for research purposes, please cite:
 
 ```
-@article{guo2021learning,
-  title={Learning cross-scale prediction for efficient neural video compression},
-  author={Guo, Zongyu and Feng, Runsen and Zhang, Zhizheng and Jin, Xin and Chen, Zhibo},
-  journal={arXiv preprint arXiv:2112.13309},
-  year={2021}
+@misc{guo2023learning,
+      title={Learning Cross-Scale Weighted Prediction for Efficient Neural Video Compression}, 
+      author={Zongyu Guo and Runsen Feng and Zhizheng Zhang and Xin Jin and Zhibo Chen},
+      year={2023},
+      eprint={2112.13309},
+      archivePrefix={arXiv},
+      primaryClass={eess.IV}
 }
 ```
