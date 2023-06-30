@@ -1,7 +1,6 @@
 # ENVC
 
-Offical implementation of [Learning Cross-Scale Prediction for Efficient Neural
-Video Compression](https://arxiv.org/abs/2112.13309v2)
+Offical implementation of [Zhibo Chen*, Jun Shi, Weiping Li, “Learned Fast HEVC Intra Coding”, Vol.29, Issue.1, pp.5431-5446, IEEE Trans. on Image Processing, 2020.](https://arxiv.org/abs/2112.13309v2)
 
 ## Installation
 
