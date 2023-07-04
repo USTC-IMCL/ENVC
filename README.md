@@ -1,6 +1,6 @@
 # ENVC
 
-Offical implementation of [Learning Cross-Scale Prediction for Efficient Neural
+Offical implementation of [Learning Cross-Scale Weighted Prediction for Efficient Neural
 Video Compression](https://arxiv.org/abs/2112.13309v2)
 
 ## Installation
@@ -90,12 +90,11 @@ python evaluate.py -i "/testset/sequence*" -c ./cfg/low_rate_model.yaml --ckpt_p
 If you use this library for research purposes, please cite:
 
 ```
-@misc{guo2023learning,
-      title={Learning Cross-Scale Weighted Prediction for Efficient Neural Video Compression}, 
-      author={Zongyu Guo and Runsen Feng and Zhizheng Zhang and Xin Jin and Zhibo Chen},
-      year={2023},
-      eprint={2112.13309},
-      archivePrefix={arXiv},
-      primaryClass={eess.IV}
+@article{guo2023learning,
+  title={Learning Cross-Scale Weighted Prediction for Efficient Neural Video Compression},
+  author={Guo, Zongyu and Feng, Runsen and Zhang, Zhizheng and Jin, Xin and Chen, Zhibo},
+  journal={IEEE Transactions on Image Processing},
+  year={2023},
+  publisher={IEEE}
 }
 ```
